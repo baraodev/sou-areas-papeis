@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 
-import SearchInput from '../SearchInput';
+import './styles.scss';
+
+import searchIcon from '../../assets/img/search.svg';
 
 class ActionRoles extends Component {
   state = {
-    searchValue: ''
+    search: ''
   };
 
   handleChange = e => {
-    this.setState({ searchValue: e.target.value });
+    this.setState({ search: e.target.value });
   };
 
   render() {
-    const { searchValue } = this.state;
+    const { search } = this.state;
     return (
       <nav className="actions-roles">
-        <SearchInput handleChange={this.handleChange} value={searchValue} />
+        <div className="search">
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={search}
+            name="search"
+            placeholder="Buscar"
+          />
+          <img src={searchIcon} alt="" />
+        </div>
       </nav>
     );
   }
