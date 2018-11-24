@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import ActionRoles from './components/ActionRoles';
 
 const App = () => (
-  <div>
-    <h1>Univesp</h1>
-  </div>
+  <Fragment>
+    <ActionRoles />
+  </Fragment>
 );
 
 export default App;
