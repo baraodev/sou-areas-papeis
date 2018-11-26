@@ -1,23 +1,23 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-const RoleDisplay = ({ role }) => (
-  <Fragment>
-    <tbody>
-      <tr>
-        <td>{role.name}</td>
-        <td>{role.users.map(user => user.image)}</td>
-        <td>
-          <label htmlFor={`activity-${role.id}`}>
-            Ativado?
-            <input type="checkbox" id={`activity-${role.id}`} />
-          </label>
-        </td>
-        <td>
-          <a href={`edict/${role.id}`}>Editar</a>
-        </td>
-      </tr>
-    </tbody>
-  </Fragment>
+const RoleDisplay = ({ role, handleCheck }) => (
+  <tr key={role.id}>
+    <td>{role.name}</td>
+    <td>{role.users.map(user => user.image)}</td>
+    <td className="col-center">
+      <label htmlFor={`activity-${role.id}`}>
+        <input
+          type="checkbox"
+          value={role.id}
+          onChange={handleCheck}
+          checked={role.active}
+        />
+      </label>
+    </td>
+    <td className="col-center">
+      <a href={`edict/${role.id}`}>Editar</a>
+    </td>
+  </tr>
 );
 
 export default RoleDisplay;

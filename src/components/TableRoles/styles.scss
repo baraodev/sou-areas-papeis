@@ -2,12 +2,48 @@ table.table-roles {
   position: relative;
   width: 80%;
   margin: 0 auto;
+  padding-top: 30px;
+}
+
+thead {
+  background-color: #f8f9fb;
 }
 
 th {
+  height: 40px;
+  font-size: 1.1rem;
   text-align: left;
+  text-transform: uppercase;
+  color: #787b7e;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
-h1.area {
+th.area {
+  height: 50px;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+th:first-of-type {
+  padding-left: 2rem;
+}
+
+td:first-of-type {
+  padding-left: 2rem;
+}
+
+tbody {
+  > tr {
+    height: 80px;
+    > td {
+      border-bottom: 3px #f8f9fb solid;
+    }
+  }
+}
+
+.col-center {
   text-align: center;
 }

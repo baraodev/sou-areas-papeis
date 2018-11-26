@@ -4,14 +4,14 @@ import RoleDisplay from '../RoleDisplay';
 
 import './styles.scss';
 
-const TableRoles = ({ roles }) => (
-  <table className="table-roles">
+const TableRoles = ({ roles, handleCheck }) => (
+  <Fragment>
     {Object.keys(roles).map(key => (
-      <Fragment>
+      <table className="table-roles" cellSpacing="0" key={key}>
         <thead>
           <tr>
-            <th colSpan="5">
-              <h1 className="area">{key}</h1>
+            <th colSpan="5" className="area">
+              {key}
             </th>
           </tr>
         </thead>
@@ -19,16 +19,18 @@ const TableRoles = ({ roles }) => (
           <tr>
             <th>Papel</th>
             <th>Usuários</th>
-            <th>Atividade</th>
-            <th>Ações</th>
+            <th className="col-center">Ativo?</th>
+            <th />
           </tr>
         </thead>
-        {roles[key].map(role => (
-          <RoleDisplay key={role.id} role={role} />
-        ))}
-      </Fragment>
+        <tbody>
+          {roles[key].map(role => (
+            <RoleDisplay key={role.id} role={role} handleCheck={handleCheck} />
+          ))}
+        </tbody>
+      </table>
     ))}
-  </table>
+  </Fragment>
 );
 
 export default TableRoles;

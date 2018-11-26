@@ -65,12 +65,27 @@ class App extends Component {
     }
   };
 
+  handleCheck = ({ target }) => {
+    const { roles } = this.state;
+    const newRoles = {};
+    Object.keys(roles).forEach(key => {
+      newRoles[key] = roles[key].map(role => {
+        if (role.id === Number(target.value)) {
+          return { ...role, active: !role.active };
+        }
+        return role;
+      });
+    });
+
+    this.setState({ roles: newRoles });
+  };
+
   render() {
     const { roles } = this.state;
     return (
       <Fragment>
         <ActionRoles />
-        <TableRoles roles={roles} />
+        <TableRoles roles={roles} handleCheck={this.handleCheck} />
       </Fragment>
     );
   }
