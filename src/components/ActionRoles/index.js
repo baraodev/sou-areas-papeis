@@ -16,6 +16,9 @@ const ActionRoles = ({ search, handleSearch }) => (
       />
       <img src={searchIcon} alt="" />
     </div>
+    <a href="/add" className="add-role">
+      +
+    </a>
   </nav>
 );
 
