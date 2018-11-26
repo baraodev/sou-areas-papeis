@@ -2,9 +2,11 @@ import React, { Component, Fragment } from 'react';
 
 import ActionRoles from './components/ActionRoles';
 import TableRoles from './components/TableRoles';
+import { resolveComponents } from 'uri-js';
 
 class App extends Component {
   state = {
+    search: '',
     roles: {
       'Recursos humanos': [
         {
@@ -65,6 +67,25 @@ class App extends Component {
     }
   };
 
+  handleSearch = e => {
+    this.setState({ search: e.target.value });
+  };
+
+  filterRoles = roles => {
+    const { search } = this.state;
+
+    if (!search) return roles;
+
+    const patt = new RegExp(`${search}`, 'i');
+
+    const newRoles = {};
+    Object.keys(roles).forEach(key => {
+      newRoles[key] = roles[key].filter(role => patt.test(role.name));
+      if (!newRoles[key].length) delete newRoles[key];
+    });
+    return newRoles;
+  };
+
   handleCheck = ({ target }) => {
     const { roles } = this.state;
     const newRoles = {};
@@ -81,11 +102,14 @@ class App extends Component {
   };
 
   render() {
-    const { roles } = this.state;
+    const { roles, search } = this.state;
     return (
       <Fragment>
-        <ActionRoles />
-        <TableRoles roles={roles} handleCheck={this.handleCheck} />
+        <ActionRoles search={search} handleSearch={this.handleSearch} />
+        <TableRoles
+          roles={this.filterRoles(roles)}
+          handleCheck={this.handleCheck}
+        />
       </Fragment>
     );
   }
