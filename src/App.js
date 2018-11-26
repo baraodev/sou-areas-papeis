@@ -6,16 +6,62 @@ import TableRoles from './components/TableRoles';
 class App extends Component {
   state = {
     roles: {
-      'Recursos humanos': {
-        id: 1,
-        name: 'Diretor de RH',
-        users: [
-          {
-            image: 'Imagenzinhas'
-          }
-        ],
-        active: true
-      }
+      'Recursos humanos': [
+        {
+          id: 1,
+          name: 'Diretor de RH',
+          users: [
+            {
+              image: 'Imagenzinhas'
+            },
+            {
+              image: 'Imagenzinhas'
+            }
+          ],
+          active: true
+        },
+        {
+          id: 2,
+          name: 'Subdiretor de RH',
+          users: [
+            {
+              image: 'Imagenzinhas'
+            },
+            {
+              image: 'Imagenzinhas'
+            }
+          ],
+          active: true
+        }
+      ],
+      TI: [
+        {
+          id: 3,
+          name: 'Diretor de TI',
+          users: [
+            {
+              image: 'Imagenzinhas'
+            },
+            {
+              image: 'Imagenzinhas'
+            }
+          ],
+          active: true
+        },
+        {
+          id: 4,
+          name: 'Subdiretor de TI',
+          users: [
+            {
+              image: 'Imagenzinhas'
+            },
+            {
+              image: 'Imagenzinhas'
+            }
+          ],
+          active: true
+        }
+      ]
     }
   };
 

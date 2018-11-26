@@ -1,34 +1,19 @@
 import React, { Fragment } from 'react';
 
-const RoleDisplay = ({ key, role }) => (
+const RoleDisplay = ({ role }) => (
   <Fragment>
-    <thead>
-      <tr>
-        <th colSpan="5">
-          <h1 className="area">{key}</h1>
-        </th>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th>Papel</th>
-        <th>Usuários</th>
-        <th>Atividade</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
     <tbody>
       <tr>
         <td>{role.name}</td>
-        <td>{role.users[0].image}</td>
+        <td>{role.users.map(user => user.image)}</td>
         <td>
-          <label htmlFor="activity">
+          <label htmlFor={`activity-${role.id}`}>
             Ativado?
-            <input type="checkbox" id="activity" />
+            <input type="checkbox" id={`activity-${role.id}`} />
           </label>
         </td>
         <td>
-          <a href="/edit/{role.id}">Editar</a>
+          <a href={`edict/${role.id}`}>Editar</a>
         </td>
       </tr>
     </tbody>
