@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import './styles.scss';
 
 import searchIcon from '../../assets/img/search.svg';
@@ -16,9 +18,9 @@ const ActionRoles = ({ search, handleSearch }) => (
       />
       <img src={searchIcon} alt="" />
     </div>
-    <a href="/add" className="add-role">
+    <Link to="/add" className="add-role">
       +
-    </a>
+    </Link>
   </nav>
 );
 
