@@ -1,0 +1,88 @@
+.form-role {
+  position: relative;
+  width: 100vw;
+  max-width: 800px;
+  padding: 0 5vw 5vw 5vw;
+  > .row {
+    margin-bottom: 2rem;
+    > label {
+      width: calc(50% - 1.5vw);
+      &:not(:last-child) {
+        margin-right: 3vw;
+      }
+      display: inline-block;
+      > .label-field {
+        display: inline-block;
+        font-size: 1rem;
+      }
+      > .text-field {
+        display: block;
+        width: 100%;
+        height: 2rem;
+        font-size: 1rem;
+        margin-top: 0.7rem;
+      }
+      > .checkbox-field {
+        position: relative;
+        margin-left: 1rem;
+      }
+    }
+  }
+  .privilegies-fieldset {
+    margin-bottom: 2rem;
+    > .row {
+      margin-bottom: 2rem;
+      &:first-of-type {
+        margin-top: 1rem;
+      }
+      &:last-of-type {
+        margin-bottom: 1rem;
+      }
+    }
+    .crud {
+      width: 100%;
+      display: block;
+      animation: fadeIn 300ms linear;
+      &.none {
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+  .submit-button {
+    position: relative;
+    padding: 1rem 2rem;
+    margin-left: calc(100% - 10rem);
+    border: none;
+    background-color: lighten(red, 10);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  25% {
+    display: block;
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
+}

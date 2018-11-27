@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 
-import { withRouter } from 'react-router-dom';
+import { Formik } from 'formik';
 
-const ModalRoles = () => <div className="basic__modal-content">Olá</div>;
+import FormRoles from '../FormRoles';
 
-export default withRouter(ModalRoles);
+import './styles.scss';
+
+class ModalRoles extends Component {
+  state = {};
+
+  getInitialValues = () => {};
+
+  handleSubmit = () => {};
+
+  render() {
+    const { title } = this.props;
+    return (
+      <Fragment>
+        <h2 className="title-modal">{title}</h2>
+        <Formik
+          initialValues={this.getInitialValues}
+          onSubmit={this.handleSubmit}
+          component={FormRoles}
+        />
+      </Fragment>
+    );
+  }
+}
+
+export default ModalRoles;

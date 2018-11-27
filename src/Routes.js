@@ -11,7 +11,11 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Fragment>
-        <ModalRoute path="/add" parentPath="/" component={ModalRoles} />
+        <ModalRoute
+          path="/add"
+          parentPath="/"
+          component={() => <ModalRoles title="Cadastro de papel" />}
+        />
         <Route path="/" component={ListRoles} />
         <ModalContainer />
       </Fragment>
