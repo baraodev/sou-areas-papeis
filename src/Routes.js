@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { ModalRoute } from 'react-router-modal';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { ModalRoute, ModalContainer } from 'react-router-modal';
+import 'react-router-modal/css/react-router-modal.css';
 
 import ListRoles from './pages/ListRoles';
+import ModalRoles from './components/ModalRoles';
 
 const Routes = () => {
   return (
     <BrowserRouter>
-      <Switch>
+      <Fragment>
+        <ModalRoute path="/add" parentPath="/" component={ModalRoles} />
         <Route path="/" component={ListRoles} />
-        <ModalRoute path="/add" component={ModalRoles} />
-      </Switch>
+        <ModalContainer />
+      </Fragment>
     </BrowserRouter>
   );
 };
